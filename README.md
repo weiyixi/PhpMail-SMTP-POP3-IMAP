@@ -3,7 +3,7 @@
 所以自己综合phpMailer，PhpImap，csdn博客等各开源代码，做一个收发件都包括的工程，供新人使用。<br/>
    有不足之处请指出
 
-##imap 收件示例
+## imap 收件示例
 	require_once __DIR__ . '/src/__autoload.php';
 	set_time_limit(0);
 	//IMAP收件
@@ -20,7 +20,7 @@
 	$mail = $mailbox->getMail($mailsIds[0]);
 	var_dump($mail);
 	die;
-##pop3 收件示例
+## pop3 收件示例
 	require_once __DIR__ . '/src/__autoload.php';
 	set_time_limit(0);
     
@@ -66,7 +66,7 @@
     $rec->close();
     
     die;
-##SMTP 发件
+## SMTP 发件
 
     /**
      * @param $sendto_email  收件地址
