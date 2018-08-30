@@ -32,7 +32,7 @@ var_dump(smtp_mail('XXXXXX@qq.com', 'XXXX', 'hahah', 'aaaaaa', 'XXX', [
     'mail_pwd' => 'XXXXX',                   //密码
     'mail_address' => 'XXXXXX@126.com'
 ]));
-function smtp_mail($sendto_email, $sendto_name, $subject, $body, $user_name, $post_array)
+function smtp_mail($sendto_email, $sendto_name, $subject, $body, $user_name, $post_array,$is_html=false)
 {
     $mail = new \src\PHPMailer\PHPMailer();
     $mail->SMTPDebug = 0;   // 开启Debug
@@ -52,7 +52,7 @@ function smtp_mail($sendto_email, $sendto_name, $subject, $body, $user_name, $po
         return false;
     }  // 收件人邮箱和姓名
     $mail->addCC($post_array['mail_address']);//抄送
-    $mail->IsHTML(false);  // send as HTML
+    $mail->IsHTML($is_html);  // send as HTML
     // 邮件主题
     $mail->Subject = $subject;
 
