@@ -6,7 +6,7 @@
  * Time: 11:31
  */
 
-require_once __DIR__ . '/src/__autoload.php';
+require_once __DIR__ . '/../src/__autoload.php';
 set_time_limit(0);
 
 /**
@@ -25,6 +25,7 @@ set_time_limit(0);
  * @return bool
  * @throws \src\PHPMailer\Exception
  */
+
 var_dump(smtp_mail('XXXXXX@qq.com', 'XXXX', 'hahah', 'aaaaaa', 'XXX', [
     'server_address' => 'smtp.126.com',    //smtp  服务器
     'port' => 465,                        //端口

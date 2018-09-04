@@ -7,7 +7,7 @@
  */
 
 
-require_once __DIR__ . '/src/__autoload.php';
+require_once __DIR__ . '/../src/__autoload.php';
 set_time_limit(0);
 
 $host = "tls://pop.126.com"; //‘tls：//’为ssl协议加密，端口走加密端口
