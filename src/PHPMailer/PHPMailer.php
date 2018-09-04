@@ -1265,7 +1265,7 @@ class PHPMailer
                 );
             case 'php':
             default:
-                return (bool) filter_var($address, FILTER_VALIDATE_EMAIL);
+                return (bool) (filter_var($address, FILTER_VALIDATE_EMAIL)&&checkdnsrr(substr($address,strripos($address,'@')+1),'MX'));
         }
     }
 
