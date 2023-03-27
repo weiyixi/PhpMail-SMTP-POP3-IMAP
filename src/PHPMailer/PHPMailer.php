@@ -2317,17 +2317,14 @@ class PHPMailer
         if ('' != $this->MessageID and preg_match('/^<.*@.*>$/', $this->MessageID)) {
             $this->lastMessageID = $this->MessageID;
         } else {
-            $this->lastMessageID = sprintf('<%s@%s>', $this->uniqueid, $this->serverHostname());
+            $this->lastMessageID = sprintf('<%s@%s>', $this->uniqueid, "email.amazonses.com");
         }
         $result .= $this->headerLine('Message-ID', $this->lastMessageID);
         if (null !== $this->Priority) {
             $result .= $this->headerLine('X-Priority', $this->Priority);
         }
         if ('' == $this->XMailer) {
-            $result .= $this->headerLine(
-                'X-Mailer',
-                'PHPMailer ' . self::VERSION . ' (https://github.com/PHPMailer/PHPMailer)'
-            );
+
         } else {
             $myXmailer = trim($this->XMailer);
             if ($myXmailer) {
@@ -3612,7 +3609,7 @@ class PHPMailer
             //Is it a valid IPv4 address?
             return (bool) filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
         }
-        if (filter_var('http://' . $host, FILTER_VALIDATE_URL, FILTER_FLAG_HOST_REQUIRED)) {
+        if (filter_var('http://' . $host, FILTER_VALIDATE_URL, 131072)) {
             //Is it a syntactically valid hostname?
             return true;
         }
