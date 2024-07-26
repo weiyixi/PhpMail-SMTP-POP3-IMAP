@@ -255,8 +255,14 @@ class Pop3
             return false;
         else
         {
+
+	  //清除上次读入的数据
+	  $this->head = [];
+	  $this->body = [];
+
             $this->getresp();
             $is_head=true;
+
             while ($this->resp!=".") // . 号是邮件结束的标识
             {
                 if ($this->debug)
